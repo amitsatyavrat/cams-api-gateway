@@ -1,0 +1,40 @@
+/*
+package com.cams.gateway.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.function.HandlerFilterFunction;
+import org.springframework.web.servlet.function.ServerRequest;
+import org.springframework.web.servlet.function.ServerResponse;
+
+import java.util.UUID;
+
+@Configuration
+public class GatewayFilterConfig {
+
+    @Bean
+    public HandlerFilterFunction<ServerResponse, ServerResponse>
+    correlationIdFilter() {
+
+        return (request, next) -> {
+
+            String correlationId =
+                    request.headers().firstHeader("X-Correlation-ID");
+
+            if (correlationId == null ||
+                    correlationId.isBlank()) {
+
+                correlationId = UUID.randomUUID().toString();
+            }
+
+            ServerRequest modifiedRequest =
+                    ServerRequest.from(request)
+                            .header(
+                                    "X-Correlation-ID",
+                                    correlationId)
+                            .build();
+
+            return next.handle(modifiedRequest);
+        };
+    }
+}*/
